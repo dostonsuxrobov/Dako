@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Star, MapPin, Phone, Truck, Package, ShieldCheck, ArrowRight, ChevronRight, Clock, ThumbsUp, Wallet, Hand, CreditCard, Smartphone, Banknote } from 'lucide-react';
 
 // --- GLOBAL STYLES FIX ---
-// This physically overrides the hidden constraints of the Vite factory defaults.
 const globalStyles = `
   html, body, #root {
     width: 100%;
@@ -33,7 +32,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="bg-white p-2 rounded w-32 h-12 flex items-center justify-center overflow-hidden">
             <img 
-              src="o (3).jpg" 
+              src="logo.jpg" 
               alt="MoverX Logo" 
               className="w-full h-full object-contain"
               onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
@@ -78,7 +77,7 @@ const Hero = () => {
       {/* Background Image with Fallback for safety */}
       <div className="absolute inset-0">
         <img 
-          src="o.jpg" 
+          src="hero.jpg" 
           alt="MoverX Truck on Street" 
           className="w-full h-full object-cover opacity-40 grayscale"
           onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80'; }}
@@ -130,7 +129,7 @@ const ProcessGallery = () => {
           {/* Image 1: Wrapping */}
           <div className="group relative overflow-hidden bg-zinc-100 aspect-[4/5] flex items-center justify-center">
             <img 
-              src="o (2).jpg" 
+              src="packing.jpg" 
               alt="MoverX wrapping furniture" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80'; }}
@@ -145,7 +144,7 @@ const ProcessGallery = () => {
           {/* Image 2: Loading */}
           <div className="group relative overflow-hidden bg-zinc-100 aspect-[4/5] flex items-center justify-center md:translate-y-12">
             <img 
-              src="o (1).jpg" 
+              src="loading.jpg" 
               alt="MoverX loaded truck" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80'; }}
@@ -217,10 +216,9 @@ const Services = () => {
   );
 };
 
-// 5. Yelp Reviews Component (Safely Isolated from React)
+// 5. Yelp Reviews Component
 const Reviews = () => {
   useEffect(() => {
-    // Only inject Yelp script if it hasn't been injected yet
     if (!document.getElementById('yelp-widget-script')) {
       const script = document.createElement('script');
       script.id = 'yelp-widget-script';
@@ -253,7 +251,6 @@ const Reviews = () => {
         <div className="flex flex-wrap justify-center gap-8">
           {yelpData.map((review) => (
             <div key={review.id} className="w-full md:w-[400px] flex justify-center bg-white shadow-lg min-h-[250px] p-4 rounded border border-zinc-200">
-              {/* The "Black Box": dangerouslySetInnerHTML prevents React from crashing when Yelp edits this HTML */}
               <div 
                 className="w-full h-full flex items-center justify-center"
                 dangerouslySetInnerHTML={{
@@ -322,7 +319,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 text-center border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-2">
             <div className="bg-white p-1 w-20 h-8 flex items-center justify-center rounded overflow-hidden">
-                <img src="o (3).jpg" alt="Logo mini" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'}/>
+                <img src="logo.jpg" alt="Logo mini" className="w-full h-full object-contain" onError={(e) => e.target.style.display='none'}/>
             </div>
             <span className="font-bold text-zinc-500 text-sm tracking-widest uppercase">© {new Date().getFullYear()} MoverX</span>
         </div>
@@ -345,7 +342,6 @@ export default function App() {
       <Reviews />
       <Services />
       <ProcessGallery />
-      
       <Footer />
     </div>
   );
