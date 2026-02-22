@@ -46,8 +46,8 @@ const Navbar = () => {
           <a href="#services" className="hover:text-red-500 transition-colors">Services</a>
           <a href="#process" className="hover:text-red-500 transition-colors">Our Process</a>
           <a href="#reviews" className="hover:text-red-500 transition-colors">Reviews</a>
-          <a href="#contact" className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 transition-all duration-300 uppercase tracking-widest text-xs border border-red-600 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]">
-            Get a Quote
+          <a href="tel:+13474760255" className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 transition-all duration-300 uppercase tracking-widest text-xs border border-red-600 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] flex items-center gap-2">
+            <Phone size={14} /> Call Now
           </a>
         </div>
 
@@ -63,7 +63,9 @@ const Navbar = () => {
           <a href="#services" className="text-white font-bold uppercase tracking-widest text-lg hover:text-red-500" onClick={() => setIsOpen(false)}>Services</a>
           <a href="#process" className="text-white font-bold uppercase tracking-widest text-lg hover:text-red-500" onClick={() => setIsOpen(false)}>Our Process</a>
           <a href="#reviews" className="text-white font-bold uppercase tracking-widest text-lg hover:text-red-500" onClick={() => setIsOpen(false)}>Reviews</a>
-          <a href="#contact" className="bg-red-600 text-white text-center font-bold uppercase tracking-widest py-4 mt-4 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]" onClick={() => setIsOpen(false)}>Get a Quote</a>
+          <a href="tel:+13474760255" className="bg-red-600 text-white text-center font-bold uppercase tracking-widest py-4 mt-4 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] flex justify-center items-center gap-2" onClick={() => setIsOpen(false)}>
+            <Phone size={18} /> Call Now
+          </a>
         </div>
       )}
     </nav>
@@ -74,7 +76,6 @@ const Navbar = () => {
 const Hero = () => {
   return (
     <div className="relative h-screen min-h-[600px] flex items-center bg-zinc-950 overflow-hidden">
-      {/* Background Image with Fallback for safety */}
       <div className="absolute inset-0">
         <img 
           src="hero.jpg" 
@@ -96,8 +97,9 @@ const Hero = () => {
           Small family-owned business ready to help near or far. Top-rated on Yelp, serving the Feasterville Area with 24/7 availability and an on-time commitment.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <a href="#contact" className="bg-red-600 hover:bg-red-700 text-white font-bold uppercase tracking-widest px-8 py-5 text-center flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]">
-            Book Your Move <ArrowRight size={20} />
+          {/* Changed standard link to tel: link */}
+          <a href="tel:+13474760255" className="bg-red-600 hover:bg-red-700 text-white font-bold uppercase tracking-widest px-8 py-5 text-center flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]">
+            Book Your Move <Phone size={20} />
           </a>
           <a href="#reviews" className="bg-white hover:bg-gray-100 text-zinc-950 font-bold uppercase tracking-widest px-8 py-5 text-center flex items-center justify-center transition-all duration-300 hover:shadow-[0_0_15px_rgba(220,38,38,0.6)]">
             Read Yelp Reviews
@@ -126,7 +128,6 @@ const ProcessGallery = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Image 1: Wrapping */}
           <div className="group relative overflow-hidden bg-zinc-100 aspect-[4/5] flex items-center justify-center">
             <img 
               src="packing.jpg" 
@@ -141,7 +142,6 @@ const ProcessGallery = () => {
             </div>
           </div>
 
-          {/* Image 2: Loading */}
           <div className="group relative overflow-hidden bg-zinc-100 aspect-[4/5] flex items-center justify-center md:translate-y-12">
             <img 
               src="loading.jpg" 
@@ -272,47 +272,37 @@ const Reviews = () => {
   );
 };
 
-// 6. Footer Component
+// 6. Footer Component (Form Removed)
 const Footer = () => {
   return (
     <footer id="contact" className="bg-zinc-950 pt-24 pb-12 text-white border-t border-zinc-800">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
-        <div>
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8">
-            Ready To <br/><span className="text-red-600">Move?</span>
-          </h2>
-          <p className="text-xl text-zinc-400 font-medium max-w-md mb-8">
-            Contact MoverX today for a free, no-obligation quote. We handle the heavy lifting.
-          </p>
-          <div className="space-y-4">
-            <div className="flex items-center gap-4 text-lg font-bold tracking-wider">
-              <Phone className="text-red-500" />
-              <span>(347) 476-0255</span>
-            </div>
-            <div className="flex items-center gap-4 text-lg font-bold tracking-wider">
-              <MapPin className="text-red-500" />
+      <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center mb-16">
+        <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8">
+          Ready To <br/><span className="text-red-600">Move?</span>
+        </h2>
+        <p className="text-xl text-zinc-400 font-medium max-w-xl mb-12">
+          Contact MoverX today. We handle the heavy lifting. Call us directly below to get started.
+        </p>
+        
+        {/* Centered Contact Box */}
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-zinc-900 p-8 border border-zinc-800 rounded shadow-xl">
+          <a href="tel:+13474760255" className="flex items-center gap-4 text-3xl font-black tracking-widest hover:text-red-500 transition-colors group">
+            <Phone className="text-red-500 group-hover:scale-110 transition-transform" size={36} />
+            <span>(347) 476-0255</span>
+          </a>
+          
+          <div className="hidden md:block w-px h-12 bg-zinc-800"></div>
+          
+          <div className="flex flex-col gap-2 text-left">
+            <div className="flex items-center gap-3 text-sm font-bold tracking-wider text-zinc-400">
+              <MapPin className="text-red-500" size={18} />
               <span>Serving Feasterville Area & Beyond</span>
             </div>
-            <div className="flex items-center gap-4 text-lg font-bold tracking-wider">
-              <Clock className="text-red-500" />
+            <div className="flex items-center gap-3 text-sm font-bold tracking-wider text-zinc-400">
+              <Clock className="text-red-500" size={18} />
               <span>Open 24 Hours / 7 Days a Week</span>
             </div>
           </div>
-        </div>
-        
-        <div className="bg-zinc-900 p-8 border border-zinc-800">
-          <h3 className="text-2xl font-black uppercase tracking-tighter mb-6">Request a Quote</h3>
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <input type="text" placeholder="Full Name" className="w-full bg-zinc-950 border border-zinc-800 p-4 text-white focus:outline-none focus:border-red-600 font-medium" />
-            <input type="tel" placeholder="Phone Number" className="w-full bg-zinc-950 border border-zinc-800 p-4 text-white focus:outline-none focus:border-red-600 font-medium" />
-            <div className="grid grid-cols-2 gap-4">
-              <input type="text" placeholder="Moving From (Zip)" className="w-full bg-zinc-950 border border-zinc-800 p-4 text-white focus:outline-none focus:border-red-600 font-medium" />
-              <input type="text" placeholder="Moving To (Zip)" className="w-full bg-zinc-950 border border-zinc-800 p-4 text-white focus:outline-none focus:border-red-600 font-medium" />
-            </div>
-            <button className="w-full bg-red-600 hover:bg-red-700 text-white font-black uppercase tracking-widest p-4 mt-4 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)]">
-              Submit Request
-            </button>
-          </form>
         </div>
       </div>
       
